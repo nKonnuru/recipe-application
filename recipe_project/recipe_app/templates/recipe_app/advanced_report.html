@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Advanced Report</title>
+</head>
+<body>
+    <h1>Advanced Recipe Report</h1>
+    <p>Total Recipes: {{ recipe_count }}</p>
+    <p>Average Ingredient Length: {{ avg_ingredient_length }}</p>
+
+    <a href="{% url 'recipe_list' %}">
+        <button type="button">Return to Recipe List</button>
+    </a>
+</body>
+</html>

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Recipe List</title>
+</head>
+<body>
+    <h1>Recipe List</h1>
+
+    <div style="margin-bottom: 20px;">
+        <a href="{% url 'recipe_report' %}">
+            <button type="button">Generate Basic Report</button>
+        </a>
+        <a href="{% url 'advanced_report' %}">
+            <button type="button">Generate Advanced Report</button>
+        </a>
+    </div>
+    <form method="get" style="margin-bottom: 20px;">
+        <input type="text" name="search" placeholder="Search by title" value="{{ query }}">
+        <button type="submit">Search</button>
+    </form>
+    <ul>
+        {% for recipe in recipes %}
+        <li>
+            {{ recipe.title }}
+            <a href="{% url 'recipe_detail' recipe.pk %}">View</a>
+            <a href="{% url 'recipe_update' recipe.pk %}">Edit</a>
+            <a href="{% url 'recipe_delete' recipe.pk %}">Delete</a>
+        </li>
+        {% endfor %}
+    </ul>
+    <a href="{% url 'recipe_create' %}">Add Recipe</a>
+</body>
+</html>
